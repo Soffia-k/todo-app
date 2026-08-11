@@ -7,12 +7,16 @@ import { useState } from "react";
 function App() {
   const [value, setValue] = useState('');
   const [values, setValues] = useState([]);
-  const handleSubmit = (value) => {setValues([...values, value])}
+  const handleSubmit = (value) => {
+    if (value !== '' && value !== ' ') {
+      setValues([...values, value])
+    }
+  }
   return (
     <div className='App'>
-      <Header/>
-      <Input onChangeValue={setValue} onSubmit={() => handleSubmit(value)} value={value}/>
-      <List list={values}/>
+      <Header />
+      <Input onChangeValue={setValue} onSubmit={() => handleSubmit(value)} value={value} />
+      <List list={values} />
     </div>
   );
 }

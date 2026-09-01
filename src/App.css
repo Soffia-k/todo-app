@@ -13,15 +13,21 @@
   color: white;
 }
 
-ol {
-  padding-top: 20px;
-  margin: 0 auto;
-  max-width: 50vw;
+.width30 {
+  max-width: 30vw;
+}
+
+.width50 {
+  max-width: 51vw;
+  margin: 20px auto;
 }
 
 .listItem {
   margin: 10px;
   padding: 10px;
-  border: 1px solid blue;
   border-radius: 14px;
+}
+
+.notShow {
+  display: none !important;
 }

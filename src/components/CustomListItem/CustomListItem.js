@@ -1,5 +1,6 @@
-import { Button, Tooltip, List } from 'antd';
+import { Tooltip, List } from 'antd';
 import { CloseCircleOutlined, CheckOutlined } from '@ant-design/icons';
+import { CustomButton } from '../CustomButton/CustomButton';
 
 import moment from 'moment';
 
@@ -16,19 +17,20 @@ export function CustomListItem(props) {
 
 					<div>{index + 1} - {item.taskName}. {item.status === 'done' ? <span>Finish date: {moment(item.dateFinished).format('MMM Do YYYY')}</span> : ''}</div>
 
-					<Button icon={<CheckOutlined />} type="link" style={{ marginLeft: '10px' }} onClick={() => {
+					<CustomButton icon={<CheckOutlined />} designType={'link'} text={item.status === 'new' ? 'Mark as done' : 'Unmark as done'} onClick={() => {
 						setValues(
 							prev => prev.map(
 								(task) => task.id === item.id ? { ...task, status: task.status === 'done' ? 'new' : 'done', dateFinished: Date.now() } : task
 							)
 						);
-					}}>{item.status === 'new' ? 'Mark as done' : 'Unmark as done'}
-					</Button>
+					}}/>
 
 					<Tooltip title="Delete. CANNOT be reverted!">
-						<Button type="link" shape="circle" icon={<CloseCircleOutlined />} style={{ marginLeft: '10px' }} onClick={() => {
+						<CustomButton designType={'link'} icon={<CloseCircleOutlined />} onClick={() => {
 							setValues(
-								values.filter((value) => value.id === item.id)
+								prev => prev.filter(
+									(value) => value.id !== item.id
+								)
 							);
 						}} />
 					</Tooltip>

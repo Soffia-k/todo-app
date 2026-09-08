@@ -12,9 +12,7 @@ function App() {
     <div className='App'>
 
       <Header />
-
       <Form value={value} setValue={setValue} setValues={setValues}/>
-
       <CustomList values={values} setValues={setValues}/>
 
     </div>

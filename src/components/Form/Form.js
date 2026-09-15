@@ -21,7 +21,7 @@ export function Form(props) {
 
       <Input className='width30' placeholder="What are you up to?" onChange={(e) => setValue(e.target.value)} value={value} />
 
-      <DatePicker style={{ marginLeft: '10px' }} onChange={onChange} needConfirm />
+      <DatePicker style={{ marginLeft: '10px' }} onChange={onChange} placeholder="Deadline" needConfirm />
 
       <CustomButton designType={'primary'} type={'submit'} text={'Submit'} />
       <CustomButton designType={'text'} onClick={() => setValue('')} text={'Clear'} />

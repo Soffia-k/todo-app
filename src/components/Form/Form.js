@@ -1,8 +1,9 @@
 import { Input, DatePicker } from 'antd';
 import { CustomButton } from '../CustomButton/CustomButton';
+import { useValue } from '../../stores/valuesStore';
 
-export function Form(props) {
-  const { value, setValue, setValues } = props;
+export function Form() {
+  const { value, setValue, setValues } = useValue();
 
   const handleSubmit = (value, e) => {
     e.preventDefault();

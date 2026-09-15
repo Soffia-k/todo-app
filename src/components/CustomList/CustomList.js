@@ -1,7 +1,8 @@
 import { CustomListItem } from '../CustomListItem/CustomListItem';
+import { useValue } from '../../stores/valuesStore';
 
-export function CustomList(props) {
-	const { values, setValues } = props;
+export function CustomList() {
+	const { values, setValues } = useValue();
 
 	return (
 		<>

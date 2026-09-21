@@ -6,7 +6,8 @@ import { Header } from './components/Header/Header';
 import { useValue } from './stores/valuesStore';
 
 function App() {
-  const { values, setValues } = useValue();
+  const values = useValue((s) => s.values);
+	const setValues = useValue((s) => s.setValues);
   // const [value, setValue] = useState('');
   // const [values, setValues] = useState([]);
   console.log(useValue.getState());

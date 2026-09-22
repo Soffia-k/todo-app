@@ -5,7 +5,7 @@ export const useValue = create((set) => {
 		value: '',
 		setValue: (newValue) => set({ value: newValue }),
 		values: [],
-		addValue: () => {
+		addValue: (deadline) => {
 			set((state) => {
 				return {
 					values: [...state.values, {
@@ -13,12 +13,13 @@ export const useValue = create((set) => {
 						taskName: state.value,
 						status: "new",
 						dateFinished: "",
+						deadline: deadline.toISOString()
 					}]
 				}
 			})
 		},
 		changeStatus: (id) => set((state) => {
-			return { values: state.values.map((task) => task.id === id ? { ...task, status: task.status === "done" ? "new" : "done" } : task) }
+			return { values: state.values.map((task) => task.id === id ? { ...task, status: task.status === "done" ? "new" : "done", dateFinished: task.dateFinished === "" ? Date.now() : "" } : task) }
 		}),
 		deleteTask: (id) => set((state) => {
 			return { values: state.values.filter((task) => task.id !== id) }

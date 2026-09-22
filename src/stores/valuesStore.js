@@ -1,19 +1,27 @@
 import { create } from 'zustand';
 
-// const useBear = create((set) => ({
-//   bears: 0,
-//   increasePopulation: () => set((state) => ({ bears: state.bears + 1 })),
-//   removeAllBears: () => set({ bears: 0 }),
-//   updateBears: (newBears) => set({ bears: newBears }),
-// }))
-
-export const useValue = create((set) => ({
-	value: '123',
-	setValue: (newValue) => set({ value: newValue }),
-	values: [],
-	valuesDone: (values) => {
-    return values.filter(item => item.done)
-  },
-	valuesNew: [],
-	setValues: (newValues) => set({ values: newValues }),
-}))
+export const useValue = create((set) => {
+	return {
+		value: '',
+		setValue: (newValue) => set({ value: newValue }),
+		values: [],
+		addValue: () => {
+			set((state) => {
+				return {
+					values: [...state.values, {
+						id: Date.now(),
+						taskName: state.value,
+						status: "new",
+						dateFinished: "",
+					}]
+				}
+			})
+		},
+		changeStatus: (id) => set((state) => {
+			return { values: state.values.map((task) => task.id === id ? { ...task, status: task.status === "done" ? "new" : "done" } : task) }
+		}),
+		deleteTask: (id) => set((state) => {
+			return { values: state.values.filter((task) => task.id !== id) }
+		})
+	}
+});

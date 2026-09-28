@@ -24,9 +24,11 @@ export function CustomListItem(props) {
 					}} />
 
 					<Tooltip title="Delete. CANNOT be reverted!">
-						<CustomButton designType={'link'} icon={<CloseCircleOutlined />} onClick={() => {
-							deleteTask(item.id);
-						}} />
+						<span>
+							<CustomButton designType={'link'} icon={<CloseCircleOutlined />} onClick={() => {
+								deleteTask(item.id);
+							}} />
+						</span>
 					</Tooltip>
 
 				</List.Item>

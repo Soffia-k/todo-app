@@ -2,15 +2,13 @@ import { create } from 'zustand';
 
 export const useValue = create((set) => {
 	return {
-		value: '',
-		setValue: (newValue) => set({ value: newValue }),
 		values: [],
-		addValue: (deadline) => {
+		addValue: (value, deadline) => {
 			set((state) => {
 				return {
 					values: [...state.values, {
 						id: Date.now(),
-						taskName: state.value,
+						taskName: value,
 						status: "new",
 						dateFinished: "",
 						deadline: deadline.toISOString()

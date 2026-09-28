@@ -1,6 +1,6 @@
 import './App.css';
 import { CustomList } from './components/CustomList/CustomList';
-import { Form } from './components/Form/Form';
+import { CustomForm } from './components/CustomForm/CustomForm';
 import { Header } from './components/Header/Header';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     <div className='App'>
 
       <Header />
-      <Form />
+      <CustomForm />
       <CustomList />
 
     </div>

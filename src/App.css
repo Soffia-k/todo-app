@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
 .width30 {
   max-width: 30vw;
 }
@@ -20,14 +9,4 @@
 .width50 {
   max-width: 51vw;
   margin: 20px auto;
-}
-
-.listItem {
-  margin: 10px;
-  padding: 10px;
-  border-radius: 14px;
-}
-
-.notShow {
-  display: none !important;
 }
